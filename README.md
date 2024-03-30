@@ -1,36 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Filtrado de Productos con Upstash, Next.js y Tailwind
 
-## Getting Started
+Este proyecto es un sistema de filtrado de productos eficiente y moderno. Utilizando tecnologías de punta, como Next.js 14 y Tailwind CSS, el proyecto aprovecha las capacidades de Upstash para manejar una base de datos de vectores, permitiendo búsquedas y filtros avanzados.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Características
+- **Next.js 14**: Aprovechamos la última versión de Next.js para un rendimiento óptimo y características de vanguardia en el desarrollo de aplicaciones web.
+- **Tailwind CSS**: Utilizamos Tailwind para un diseño responsive y personalizable, siguiendo las mejores prácticas de diseño sin sacrificar la velocidad de desarrollo.
+- **Upstash**: Nos apoyamos en Upstash para crear una base de datos de vectores escalable y de alta disponibilidad, ideal para manejar operaciones de filtrado complejas.
+- **Filtrado Avanzado**: Implementamos un sistema de filtrado robusto que permite a los usuarios encontrar productos específicos rápidamente y sin esfuerzo.
+- **Shadcn**: Integración con Shadcn para potenciar nuestras interfaces con componentes reactivos y de alta calidad.
