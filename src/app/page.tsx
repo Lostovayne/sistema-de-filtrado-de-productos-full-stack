@@ -5,8 +5,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { useQuery } from "@tanstack/react-query";
 import { ChevronDown, Filter } from "lucide-react";
 import { useState } from "react";
+
+import type { Product } from "@/db";
+import { QueryResult } from "@upstash/vector";
+import axios from "axios";
+
+import ProductCard from "@/components/Products/Product";
 
 const SORT_OPTIONS = [
   {
@@ -26,10 +33,27 @@ const SORT_OPTIONS = [
 export default function Home() {
   const [filter, setFilter] = useState({
     sort: "none",
-    size: "all",
   });
 
-  // console.log(filter);
+  // usando Tanstack query
+
+  const { data: products } = useQuery({
+    queryKey: ["products"],
+    queryFn: async () => {
+      const { data } = await axios.post<QueryResult<Product>[]>(
+        "http://localhost:3000/api/products",
+        {
+          filter: {
+            sort: filter.sort,
+          },
+        }
+      );
+
+      return data;
+    },
+  });
+
+  console.log(products);
 
   return (
     <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -66,6 +90,20 @@ export default function Home() {
           </button>
         </div>
       </div>
+
+      <section className="pt-6 pb-24">
+        <div className="gap-x-8 gap-y-10 grid grid-cols-1 lg:grid-cols-4">
+          {/* Filters */}
+          <div></div>
+
+          {/* Products grid */}
+          <ul className="gap-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:col-span-3">
+            {products?.map((product) => (
+              <ProductCard key={product.id} product={product.metadata! as Product} />
+            ))}
+          </ul>
+        </div>
+      </section>
     </main>
   );
 }
