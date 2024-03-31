@@ -1,15 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Product } from "@/db";
 
-const ProductCard = ({ product }: { product: Product  }) => {
+const ProductCard = ({ product }: { product: Product }) => {
   return (
     <div className="relative group">
-      <div className="bg-gray-200 group-hover:opacity-75 rounded-md aspect-w-1 w-full aspect-h-1 lg:h-80 overflow-hidden lg:aspect-none">
-        <img
-          src={product.imageId}
-          alt="product image"
-          className="w-full h-full object-center object-cover"
-        />
+      <div className="bg-gray-200 group-hover:opacity-75 rounded-md w-full lg:h-80 overflow-hidden aspect-square lg:aspect-none">
+        <img src={product.imageId} alt="product image" className="w-full h-full object-center object-contain" />
       </div>
 
       <div className="flex justify-between mt-4">
