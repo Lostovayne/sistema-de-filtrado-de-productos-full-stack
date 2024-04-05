@@ -12,6 +12,7 @@ import axios from "axios";
 import ProductCard from "@/components/Products/Product";
 import ProductSkeleton from "@/components/Products/ProductSkeleton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ProductState } from "@/lib/validators/product-validator";
 
 const SORT_OPTIONS = [
   { name: "None", value: "none" },
@@ -38,8 +39,13 @@ const SUBCATEGORIES = [
   { name: "Accessories", selected: false, href: "#" },
 ];
 
+const DEFAULT_CUSTOM_PRICE = [0, 1000] as [number, number];
+
 export default function Home() {
-  const [filter, setFilter] = useState({
+  const [filter, setFilter] = useState<ProductState>({
+    color: ["beige", "blue", "green", "purple", "white"],
+    price: { isCustom: false, range: DEFAULT_CUSTOM_PRICE },
+    size: ["S", "M", "L"],
     sort: "none",
   });
 
